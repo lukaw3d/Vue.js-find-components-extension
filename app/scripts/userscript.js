@@ -1,4 +1,17 @@
 (() => {
+  function getRoot() {
+    if (!this.cachedRoot) {
+      const rootEl = [...document.querySelectorAll('*')].find(e => e.__vue__)
+      if (rootEl) {
+        this.cachedRoot = rootEl.__vue__
+      } else {
+        throw new Error("Couldn't find Vue with exposed devtools")
+      }
+    }
+    return this.cachedRoot
+  }
+  getRoot.cachedRoot = document.querySelector('#app') && document.querySelector('#app').__vue__
+
   // Traversing
   // ----------
   function getParents(e) {
@@ -194,7 +207,7 @@
       filterThroughClutter = (e) => true
     }
 
-    return traverseFiltered(document.querySelector('#app').__vue__,
+    return traverseFiltered(getRoot(),
       filterThroughClutter,
       (e, {depth, depthFiltered}) => {
         const attributes = Object.entries(getAttributes(e)).filter(([attrKey, attrValue]) => attrValue)
@@ -212,7 +225,7 @@
   function vueFindAll(selector = 'ComponentA[model=example] ComponentB') {
     const [elemSelector, ...parentsSelectors] = selector.split(/\s+/).reverse()
 
-    const results = traverse(document.querySelector('#app').__vue__, (e) => {
+    const results = traverse(getRoot(), (e) => {
       const attributes = getAttributes(e)
       if (!doesSelectorMatch(e, elemSelector)) return undefined
 
