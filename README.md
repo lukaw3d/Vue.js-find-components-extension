@@ -1,13 +1,30 @@
 # Vue.js find components
 
-Adds global helper function for finding Vue components (window.vueFind = querySelector for VDOM)
+Adds global helper function for finding Vue components
 
-## Install
+```js
+window.vueFind ~= querySelector for VDOM
+window.vueFindAll ~= querySelectorAll for VDOM
 
-	$ npm install
+window.vueFind('Card CardDialog[model=isCardDialogVisible]').model
+```
+
+- Simple selectors:
+
+    `window.vueFind('missing')` prints a warning with a tree of supported selectors
+
+- Attribute selectors:
+
+    only `[attr=fullvalue]` operator is supported
+
+- Combinators:
+
+    simple selectors can only be combined with a descendant combinator (a space)
+
 
 ## Development
 
+    npm install
     npm run dev chrome
     npm run dev firefox
     npm run dev opera
@@ -19,11 +36,3 @@ Adds global helper function for finding Vue components (window.vueFind = querySe
     npm run build firefox
     npm run build opera
     npm run build edge
-
-## Environment
-
-The build tool also defines a variable named `process.env.NODE_ENV` in your scripts. 
-
-## Docs
-
-* [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
