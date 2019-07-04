@@ -60,9 +60,16 @@
     // selectorPart = 'ReactionDialog[model=isReactionDialogVisible][f=5]'
     const sName = selectorPart.match(/^[^\[]+/g)[0]
     const sAttributes = selectorPart.slice(sName.length).split(/[\[\]]/).filter(s=>s).map(pair => pair.split('='))
+      .map(([attrKey, attrValue]) => [attrKey, attrValue.replace(/^"(.*)"$/, '$1')]) // strip away quotes
 
     return sName === eName &&
       sAttributes.every(([attrKey, attrValue]) => eAttributes[attrKey] === attrValue)
+  }
+  function splitBySpacesOutsideQuotes(selector) {
+    return selector
+      .replace(/"[^"]+"/g, (s) => s.replace(/ /g, '!!space!!'))
+      .split(/\s+/)
+      .map(s => s.replace(/!!space!!/g, ' '))
   }
 
 
@@ -215,7 +222,7 @@
         return [
           '  '.repeat(depthFiltered),
           getName(e),
-          ...attributes.map(([attrKey, attrValue]) => `[${attrKey}=${attrValue}]`),
+          ...attributes.map(([attrKey, attrValue]) => `[${attrKey}="${attrValue}"]`),
         ].join('')
       }
     ).join('\n')
@@ -223,7 +230,7 @@
 
   // vueFindAll('ReactionDialog[model=isReactionDialogVisible] MetaboliteDialog')
   function vueFindAll(selector = 'ComponentA[model=example] ComponentB') {
-    const [elemSelector, ...parentsSelectors] = selector.split(/\s+/).reverse()
+    const [elemSelector, ...parentsSelectors] = splitBySpacesOutsideQuotes(selector).reverse()
 
     const results = traverse(getRoot(), (e) => {
       const attributes = getAttributes(e)

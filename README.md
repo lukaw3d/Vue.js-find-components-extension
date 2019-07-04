@@ -15,7 +15,7 @@ window.vueFind('Card CardDialog[model=isCardDialogVisible]').model
 
 - Attribute selectors:
 
-    only `[attr=fullvalue]` operator is supported
+    only `[attr=fullvalue]` and `[attr="full value"]` operators are supported
 
 - Combinators:
 
