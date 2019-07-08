@@ -50,7 +50,7 @@
   function getAttributes(e) {
     return {
       label: e.$attrs.label,
-      model: e.$vnode.data.model && e.$vnode.data.model.expression,
+      model: e.$vnode && e.$vnode.data && e.$vnode.data.model && e.$vnode.data.model.expression,
     }
   }
   function doesSelectorMatch(e, selectorPart) {
