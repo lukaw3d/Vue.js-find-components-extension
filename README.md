@@ -11,7 +11,7 @@ window.vueFind('Card CardDialog[model=isCardDialogVisible]').model
 
 - Simple selectors:
 
-    `window.vueFind('missing')` prints a warning with a tree of supported selectors
+    `window.vueFind('missing')` prints a warning with a tree of supported simple selectors
 
 - Attribute selectors:
 
