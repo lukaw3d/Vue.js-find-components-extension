@@ -264,6 +264,6 @@
     return results[0]
   }
 
-  window.vueFind = vueFind
-  window.vueFindAll = vueFindAll
+  if (!window.vueFind) window.vueFind = vueFind
+  if (!window.vueFindAll) window.vueFindAll = vueFindAll
 })()
