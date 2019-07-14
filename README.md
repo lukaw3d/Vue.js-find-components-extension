@@ -22,6 +22,12 @@ window.vueFind('Card CardDialog[model=isCardDialogVisible]').model
     simple selectors can only be combined with a descendant combinator (a space)
 
 
+## Install
+
+Chrome https://chrome.google.com/webstore/detail/vuejs-find-components/cpghcnolkpibahdpidfopplkdmckpcck
+
+Firefox https://addons.mozilla.org/en-US/firefox/addon/vue-js-find-components/
+
 ## Development
 
     npm install
