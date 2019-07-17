@@ -1,13 +1,22 @@
 # Vue.js find components
 
-Adds global helper function for finding Vue components
+Extension for automating/debugging of Vue.js applications. For most debugging purposes `Vue.js devtools`
+are great. This extension supplements them by adding a global `vueFind` function for accessing components
+ by selector, instead of clicking through devtools to get `$vm0`.
+
+## Usage:
 
 ```js
 window.vueFind ~= querySelector for VDOM
 window.vueFindAll ~= querySelectorAll for VDOM
-
-window.vueFind('Card CardDialog[model=isCardDialogVisible]').model
 ```
+
+Instead of manually searching for a component in devtools every time, run
+```js
+$vm0 = window.vueFind('Card CardDialog[model=isCardDialogVisible]')`
+```
+(and maybe even make a bookmarklet out of it)
+
 
 - Simple selectors:
 
