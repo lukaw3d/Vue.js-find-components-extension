@@ -229,7 +229,7 @@
   }
 
   // vueFindAll('ReactionDialog[model=isReactionDialogVisible] MetaboliteDialog')
-  function vueFindAll(selector = 'ComponentA[model=example] ComponentB') {
+  function vueFindAll(selector = 'ComponentA[model=example] ComponentB', {noWarning = false} = {}) {
     const [elemSelector, ...parentsSelectors] = splitBySpacesOutsideQuotes(selector).reverse()
 
     const results = traverse(getRoot(), (e) => {
@@ -249,7 +249,7 @@
       return e
     }).filter(e => e !== undefined)
 
-    if (results.length <= 0) {
+    if (results.length <= 0 && !noWarning) {
       console.warn('No results for "' + selector + '".   Selectors tree: ', {
         get click_to_show() { console.log(vueTree(true)) },
         get click_to_show_cluttered() { console.log(vueTree(false)) },
@@ -258,9 +258,9 @@
     return results
   }
 
-  function vueFind(selector) {
-    const results = vueFindAll(selector)
-    if (results.length > 1) console.warn('Multiple results for "' + selector + '".', { results: results })
+  function vueFind(selector, {noWarning = false} = {}) {
+    const results = vueFindAll(selector, { noWarning })
+    if (results.length > 1 && !noWarning) console.warn('Multiple results for "' + selector + '".', { results: results })
     return results[0]
   }
 
