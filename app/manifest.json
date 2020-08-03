@@ -14,5 +14,6 @@
       "run_at": "document_end",
       "all_frames": false
     }
-  ]
+  ],
+  "content_security_policy": "default-src 'self'"
 }
