@@ -1,13 +1,8 @@
 {
-  "name": "Vue.js-find-components",
-  "version": "0.0.2",
+  "name": "vue.js-find-components",
+  "version": "0.1.0",
   "description": "Adds global helper function for finding Vue components (window.vueFind = querySelector for VDOM)",
   "scripts": {
-    "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
-  },
-  "devDependencies": {
-    "raw-loader": "^4.0.1",
-    "webextension-toolbox": "latest"
+    "build": "zip --junk-paths --recurse-paths app.zip app"
   }
 }

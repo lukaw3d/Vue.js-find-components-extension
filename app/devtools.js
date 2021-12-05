@@ -1,4 +1,13 @@
-(() => {
+function inject() {
+  chrome.devtools.inspectedWindow.eval(`${userscript.toString()}; userscript();`)
+}
+chrome.devtools.network.onNavigated.addListener(inject)
+inject()
+
+
+
+
+function userscript() {
   function getRoot() {
     if (!this.cachedRoot) {
       const rootEl = [...document.querySelectorAll('*')].find(e => e.__vue__)
@@ -266,4 +275,4 @@
 
   if (!window.vueFind) window.vueFind = vueFind
   if (!window.vueFindAll) window.vueFindAll = vueFindAll
-})()
+}

@@ -1,19 +1,13 @@
 {
-  "name": "__MSG_appName__",
-  "short_name": "__MSG_appShortName__",
-  "description": "__MSG_appDescription__",
-  "version": "0.0.2",
-  "manifest_version": 2,
-  "default_locale": "en",
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": [
-        "scripts/contentscript.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": false
-    }
-  ],
-  "content_security_policy": "default-src 'self'"
+  "manifest_version": 3,
+  "version": "0.1.0",
+
+  "name": "Vue.js find components",
+  "short_name": "Vue.js find",
+  "description": "Adds global helper function for finding Vue components (window.vueFind = querySelector for VDOM)",
+
+  "devtools_page": "./devtools.html",
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self';"
+  }
 }

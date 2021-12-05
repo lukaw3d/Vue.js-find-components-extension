@@ -37,20 +37,9 @@ Chrome https://chrome.google.com/webstore/detail/vuejs-find-components/cpghcnolk
 
 Firefox https://addons.mozilla.org/en-US/firefox/addon/vue-js-find-components/
 
-## Development
-
-    npm install
-    npm run dev chrome
-    npm run dev firefox
-    npm run dev opera
-    npm run dev edge
-
 ## Build
 
-    npm run build chrome
-    npm run build firefox
-    npm run build opera
-    npm run build edge
+    npm run build
 
 ## Screenshot
 
