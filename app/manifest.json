@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "version": "0.1.0",
 
   "name": "Vue.js find components",
@@ -12,7 +12,5 @@
   },
 
   "devtools_page": "./devtools.html",
-  "content_security_policy": {
-    "extension_pages": "default-src 'none'; script-src 'self';"
-  }
+  "content_security_policy": "default-src 'none'; script-src 'self';"
 }
