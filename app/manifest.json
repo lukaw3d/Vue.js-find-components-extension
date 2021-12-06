@@ -5,6 +5,11 @@
   "name": "Vue.js find components",
   "short_name": "Vue.js find",
   "description": "Adds global helper function for finding Vue components (window.vueFind = querySelector for VDOM)",
+  "icons": {
+    "32": "icon32.png",
+    "128": "icon128.png",
+    "192": "icon192.png"
+  },
 
   "devtools_page": "./devtools.html",
   "content_security_policy": {
