@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "description": "Adds global helper function for finding Vue components (window.vueFind = querySelector for VDOM)",
   "scripts": {
-    "build": "zip --junk-paths --recurse-paths app.zip app"
+    "build": "(cd app && zip --recurse-paths ../app.zip ./)"
   }
 }
